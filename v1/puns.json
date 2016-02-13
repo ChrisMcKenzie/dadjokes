@@ -6,12 +6,17 @@
   },
   {
     "level": "1",
-    "name": "pirate's favorite letter",
+    "name": "Pirate's Favorite Letter",
     "joke": "What's a pirate's favorite letter? It be the Sea"
   },
   {
     "level": "1",
     "name": "He's Alright",
     "joke": "Did you hear about the guy whose whole left side was cut off? He's all right now."
+  },
+  {
+    "level": "1",
+    "name": "Nut Assault",
+    "joke": "Two peanuts were walking down the street. One was a salted."
   }
 ]
