@@ -18,5 +18,15 @@
     "level": "3",
     "name": "Bakery Fire",
     "joke": "My friend's bakery burned down last night. Now his business is toast."
+  },
+  {
+    "level": "2",
+    "name": "Nut Assault",
+    "joke": "Two peanuts were walking down the street. One was a salted."
+  },
+  {
+    "level": "2",
+    "name": "Wonderwall",
+    "joke": "My son asked me to stop singing oasis songs in public. I said maybe."
   }
 ]
