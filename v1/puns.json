@@ -33,5 +33,25 @@
     "level": "2",
     "name": "Banking",
     "joke": "I used to be a banker but I lost interest"
+  },
+  {
+    "level": "2",
+    "name": "Golfer Pants",
+    "joke": "Why did the golfer bring two pairs of pants? In case he got a hole-in-one."
+  },
+  {
+    "level": "1",
+    "name": "Lieutenant Dan",
+    "joke": "To the man in the wheelchair that stole my camouflage jacket; You can hide, but you can't run."
+  },
+  {
+    "level": "3",
+    "name": "Flamingo",
+    "joke": "When my wife told me to stop impersonating a flamingo I had to put my foot down."
+  },
+  {
+    "level": "1",
+    "name": "My Day",
+    "joke": "The rotation of earth really makes my day."
   }
 ]
