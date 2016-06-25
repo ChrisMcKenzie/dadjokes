@@ -1,0 +1,136 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="dj-icons.html">
+
+<dom-module id="dj-app">
+
+  <template>
+
+    <style>
+
+      :host {
+        display: block;
+        --app-primary-color: #FF5722;
+        --app-secondary-color: black;
+      }
+
+      app-header {
+        background-color: var(--app-primary-color);
+        color: #fff;
+      }
+      app-header paper-icon-button {
+        --paper-icon-button-ink-color: white;
+      }
+
+      app-toolbar {
+        background-color: var(--app-primary-color);
+        color: #fff;
+      }
+
+      .drawer-list {
+        margin: 0 20px;
+      }
+      .drawer-list a {
+        display: block;
+        padding: 0 16px;
+        line-height: 40px;
+        text-decoration: none;
+        color: var(--app-secondary-color);
+      }
+      .drawer-list a.iron-selected {
+        color: black;
+        font-weight: bold;
+      }
+      .drawer-list a.subroute {
+        padding-left: 32px;
+      }
+
+
+    </style>
+
+    <app-location route="{{route}}"></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/:page"
+        data="{{routeData}}"
+        queryParams="{{params}}"
+        tail="{{subroute}}"></app-route>
+
+    <app-drawer-layout fullbleed>
+
+      <!-- Drawer content -->
+      <app-drawer>
+        <app-toolbar>
+            Dad Jokes Are Cool!
+        </app-toolbar>
+        <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+          <a name="home" href="/">Jokes</a>
+          <a name="contributing" href="/contributing">Contributing</a>
+        </iron-selector>
+      </app-drawer>
+
+      <!-- Main content -->
+      <app-header-layout has-scrolling-region>
+
+        <app-header fixed>
+          <app-toolbar>
+            <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+          </app-toolbar>
+        </app-header>
+
+        <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
+          <dj-home name="home" route="{{subroute}}"></dj-home>
+          <dj-contrib name="contributing"></dj-contrib>
+        </iron-pages>
+
+      </app-header-layout>
+
+    </app-drawer-layout>
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'dj-app',
+
+      properties: {
+
+        page: {
+          type: String,
+          reflectToAttribute: true,
+          observer: '_pageChanged'
+        },
+
+      },
+
+      observers: [
+        '_routePageChanged(routeData.page)'
+      ],
+
+      _routePageChanged: function(page) {
+        this.page = page || 'home';
+      },
+
+      _pageChanged: function(page) {
+        // load page import on demand.
+        this.importHref(
+          this.resolveUrl(page + '.html'), null, null, true);
+      }
+
+    });
+
+  </script>
+
+</dom-module>

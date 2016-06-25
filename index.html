@@ -1,24 +1,72 @@
-<html>
-  <head>
-    <title>Dad jokes are cool API</title>
-  </head>
-  <body>
-    <h1> Welcome to the totally cool dad joke api </h1>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
-    <h3> Endpoints </h3>
-    <ul>
-      <li><a href="/v1/puns.json">List Puns [/v1/puns.json]</a></li>
-    </ul>
-    
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    
-      ga('create', 'UA-54513795-2', 'auto');
-      ga('send', 'pageview');
-    
-    </script>
-  </body>
+  <title>Dad Jokes Are Cool</title>
+
+  <link rel="shortcut icon" sizes="32x32" href="/images/app-icon-32.png">
+
+  <meta name="theme-color" content="#fff">
+  <link rel="manifest" href="/manifest.json">
+
+  <script>
+
+    // setup Polymer options
+    window.Polymer = {lazyRegister: true, dom: 'shadow'};
+
+    // load webcomponents polyfills
+    (function() {
+      if ('registerElement' in document
+          && 'import' in document.createElement('link')
+          && 'content' in document.createElement('template')) {
+        // browser has web components
+      } else {
+        // polyfill web components
+        var e = document.createElement('script');
+        e.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
+        document.head.appendChild(e);
+      }
+    })();
+
+    // load pre-caching service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
+
+  </script>
+
+  <link rel="import" href="/src/dj-app.html">
+
+  <style>
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', 'Noto', sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+      background-color: #eee;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <dj-app></dj-app>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  
+    ga('create', 'UA-54513795-2', 'auto');
+    ga('send', 'pageview');
+  
+  </script>
+</body>
 </html>
