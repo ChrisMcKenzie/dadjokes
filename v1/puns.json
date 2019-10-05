@@ -438,5 +438,20 @@
     "level": "1",
     "name": "This Joke Will Spark A Laugh",
     "joke": "What's the difference between a hippo and a Zippo? One is heavy, and the other is a little lighter."
+  },
+  {
+    "level": "1",
+    "name": "Unstable Bicycles",
+    "joke": "Why are bike trails so crazy? Because they're cycle paths."
+  },
+  {
+    "level": "1",
+    "name": "Bad Music",
+    "joke": "How do you listen to nefarious music? On a seedy player."
+  },
+  {
+    "level": "1",
+    "name": "Animal Sports",
+    "joke": "What animal picks the other animals to play basketball? The NBA Giraffe."
   }
 ]
